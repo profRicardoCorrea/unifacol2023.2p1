@@ -1,5 +1,7 @@
 package basico;
 
+import projeto_denuncia.Denuncia;
+
 public class Fatorial {
 public static int soma(int x) {
 	System.out.println("x:"+x);
@@ -14,6 +16,11 @@ public static void main(String[] args) {
 			//System.out.println("n:"+(--n));
 			System.out.println(soma(n++));
 			System.out.println(n);
+			
+			Denuncia dn=new Denuncia();
+			dn.
 		}
+
+	
 	
 }
