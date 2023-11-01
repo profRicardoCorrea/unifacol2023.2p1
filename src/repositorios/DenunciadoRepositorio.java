@@ -13,7 +13,9 @@ public class DenunciadoRepositorio {
     public void salvar(Denunciado denunciado) {
         denunciados.add(denunciado);
     }
-
+    public void checkout(float valorAntecipado) {}
+    public void checkout(int parcelas, float taxaJuros,float valorAntecipado) {}
+  
     public void atualizar(Denunciado denunciadoExistente, Denunciado denunciadoAtualizado) {
         int index = denunciados.indexOf(denunciadoExistente);
         if (index != -1) {
