@@ -2,6 +2,7 @@ package gui.menu;
 
 import java.util.Scanner;
 
+import entidades.Denunciante;
 import repositorios.DenuncianteRepositorio;
 import repositorios.interfaces.IDenuncianteRepositorio;
 import servicos.DenuncianteService;
@@ -23,18 +24,48 @@ public class DenuncianteMenu {
             System.out.println("6. Listar Denunciante por CPF");
             System.out.println("0. Sair");
             System.out.print("Escolha uma opção: ");
-            
+            Denunciante denunciante=null;
             opcao = scanner.nextInt();
             scanner.nextLine();  // Consumir o '\n' que fica no buffer
             
             switch (opcao) {
                 case 1:
-                    criarDenunciante();
+                	denunciante=null;
+                	System.out.println("Digite o nome do Denunciante:");
+                	denunciante.setNome(scanner.next());
+                	System.out.println("Digite o cpf do Denunciante:");
+                	denunciante.setCpf(scanner.next());
+                	System.out.println("Digite o RG do Denunciante:");
+                	denunciante.setRg(scanner.next());
+                	System.out.println("Digite a Data de Nascimnto do Denunciante:");
+                	denunciante.setDataNasimento(scanner.next());                	
+                	denuncianteService.criarDenunciante(denunciante);
                     break;
                 case 2:
-                    atualizarDenunciante();
+                	denunciante=null;
+                	System.out.println("Digite o cpf do Denunciante:");
+                	String cpf= scanner.next();
+                	denunciante = denuncianteService.buscarDenunciantePorCPF(cpf);
+	            	if(denunciante!=null) {
+		            	System.out.println("Digite o nome do Denunciante:");
+		            	denunciante.setNome(scanner.next());		            	
+		            	System.out.println("Digite o RG do Denunciante:");
+		            	denunciante.setRg(scanner.next());
+		            	System.out.println("Digite a Data de Nascimnto do Denunciante:");
+		            	denunciante.setDataNasimento(scanner.next());                	
+		            	denuncianteService.atualizarDenunciante(denunciante);
+	            	}else {
+	            		System.out.println("Cpf não encontrado");
+	            	}
+                    
                     break;
                 case 3:
+                	denunciante=null;
+                	System.out.println("Digite o cpf do Denunciante:");
+                	String cpf_r= scanner.next();
+                	Denunciante denunciante_b = denuncianteService.buscarDenunciantePorCPF(cpf);
+                	denuncianteService.removerDenunciante(denunciante_b);
+	            	
                     removerDenunciante();
                     break;
                 case 4:

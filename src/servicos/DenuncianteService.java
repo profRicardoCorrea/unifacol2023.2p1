@@ -17,8 +17,8 @@ public class DenuncianteService {
         repositorio.salvar(denunciante);
     }
 
-    public void atualizarDenunciante(Denunciante denuncianteExistente, Denunciante denuncianteAtualizado) {
-        repositorio.atualizar(denuncianteExistente, denuncianteAtualizado);
+    public void atualizarDenunciante( Denunciante denuncianteAtualizado) {
+        repositorio.atualizar(denuncianteAtualizado);
     }
 
     public void removerDenunciante(Denunciante denunciante) {

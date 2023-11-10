@@ -14,8 +14,8 @@ public class DenuncianteRepositorio {
         denunciantes.add(denunciante);
     }
 
-    public void atualizar(Denunciante denuncianteExistente, Denunciante denuncianteAtualizado) {
-        int index = denunciantes.indexOf(denuncianteExistente);
+    public void atualizar( Denunciante denuncianteAtualizado) {
+        int index = denunciantes.indexOf(denuncianteAtualizado);
         if (index != -1) {
             denunciantes.set(index, denuncianteAtualizado);
         }
