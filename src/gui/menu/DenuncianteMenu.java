@@ -1,5 +1,6 @@
 package gui.menu;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import entidades.Denunciante;
@@ -69,8 +70,11 @@ public class DenuncianteMenu {
                     removerDenunciante();
                     break;
                 case 4:
-                    listarTodosDenunciantes();
-                    break;
+                	ArrayList<Denunciante>  denunciantes = (ArrayList<Denunciante>) denuncianteService.listarTodosDenunciantes();
+                    for (Denunciante denunciante2 : denunciantes) {
+						System.out.println("NOME:"+denunciante2.getNome());
+					}
+                	break;
                 case 5:
                     listarDenunciantePorNome();
                     break;
